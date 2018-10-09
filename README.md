@@ -4,7 +4,7 @@ Python implementation of NETD test script for uncooled microbolometers.
 Tools required:
 - Numpy
 - Inquirer
-    pip install inquirer
+  >  pip install inquirer
 
 This script allows for evaluating the NETD performance of any LWIR microbolometer.
 
