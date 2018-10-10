@@ -2,13 +2,17 @@
 Python implementation of NETD test script for uncooled microbolometers.
 
 Tools required:
+- Python3
 - Numpy
 - Inquirer
   >  pip install inquirer
 
 This script allows for evaluating the NETD performance of any LWIR microbolometer.
 
+Set Integration time to full. 
+Capture only NUC images. 
 
+---
 Capture the following 3 datasets - 60 frames of images from the unit - pointing at a blackbody.
 
 1) blackbody @20C
