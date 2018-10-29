@@ -1,7 +1,6 @@
 import os
 import numpy as np
 
-from read_pgm_file import get_data
 import inquirer
 
 
@@ -9,11 +8,13 @@ def avg_20(resolution):
     avgimg_20 = 0
     files = os.listdir('./datasets/20/')
     for index, value in enumerate(files):
-        image = np.array(get_data('./datasets/20/' + files[index], resolution), dtype=np.float)
-        # np.memmap(filename, dtype='uint16', mode='r').reshape(480, 648)
+        image = np.memmap('./datasets/20' + '/' + value, dtype='uint16', mode='r').reshape(resolution)
         avgimg_20 = image + avgimg_20
+        avgimg_20 = avgimg_20.astype('uint32')
+
     avgimg_20 = avgimg_20 / 60.0
-    print('Averaged 20')
+
+    print('Averaged 20', avgimg_20)
     return avgimg_20
 
 
@@ -21,11 +22,12 @@ def avg_25(resolution):
     avgimg_25 = 0
     files = os.listdir('./datasets/25/')
     for index, value in enumerate(files):
-        image = np.array(get_data('./datasets/25/' + files[index], resolution), dtype=np.float)
-        # np.memmap(filename, dtype='uint16', mode='r').reshape(480, 648)
+        image = np.memmap('./datasets/25' + '/' + value, dtype='uint16', mode='r').reshape(resolution)
         avgimg_25 = image + avgimg_25
+        avgimg_25 = avgimg_25.astype('uint32')
+
     avgimg_25 = avgimg_25 / 60.0
-    print('Averaged 25')
+    print('Averaged 25', avgimg_25)
 
     std_var = np.std(avgimg_25)
     std_var = std_var
@@ -36,11 +38,12 @@ def avg_30(resolution):
     avgimg_30 = 0
     files = os.listdir('./datasets/30/')
     for index, value in enumerate(files):
-        image = np.array(get_data('./datasets/30/' + files[index], resolution), dtype=np.float)
-        # np.memmap(filename, dtype='uint16', mode='r').reshape(480, 648)
+        image = np.memmap('./datasets/30' + '/' + value, dtype='uint16', mode='r').reshape(resolution)
         avgimg_30 = image + avgimg_30
+        avgimg_30 = avgimg_30.astype('uint32')
+
     avgimg_30 = avgimg_30 / 60.0
-    print('Averaged 30')
+    print('Averaged 30', avgimg_30)
     return avgimg_30
 
 
@@ -62,9 +65,9 @@ def main():
 
     sensor = answers['RESOLUTION']
     if sensor == 'VGA(Gen2)':
-        columns_to_read = [0, 640]
+        columns_to_read = [480, 640]
     else:
-        columns_to_read = [0, 320]
+        columns_to_read = [240, 320]
 
     return columns_to_read
 

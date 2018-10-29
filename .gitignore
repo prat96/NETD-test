@@ -1,2 +1,4 @@
 *.pgm
 *.yuv
+
+.idea/
