@@ -19,7 +19,7 @@ Capture the following 3 datasets - 60 frames of images from the unit - pointing 
 2) blackbody @25C
 3) blackbody @30C
 
-Convert these files to pgm using the swap.c file and place them in the 'datasets' folder, in each respective temperature folder.
+Place them in the 'datasets' folder, in each respective temperature folder.
 
 Make sure no other files exist in the path.
 NETD result is displayed in mK(miliKelvin)
