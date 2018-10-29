@@ -52,7 +52,7 @@ def compute_NETD(avg20, stdvar_25, avg30):
     print('\nResposivity =', np.average(responsivity))
     print('Temporal noise =', stdvar_25)
     netd = stdvar_25 / np.average(responsivity)
-    netd = netd * 1000
+    netd = np.abs(netd * 1000)
     print('\nNETD value =', netd, 'mK')
 
 
